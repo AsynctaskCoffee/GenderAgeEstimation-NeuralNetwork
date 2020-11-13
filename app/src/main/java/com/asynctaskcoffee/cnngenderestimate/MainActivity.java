@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
         if (checkSelfPermission(READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE}, REQUEST_READ_PERMISSION);
         } else {
-            cnnGender = new GenderEstimator();
-            cnnAge = new AgeEstimator();
+            cnnGender = new GenderEstimator(this);
+            cnnAge = new AgeEstimator(this);
         }
     }
 
@@ -85,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
             startCameraForResult();
         }
         if (requestCode == REQUEST_READ_PERMISSION && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            cnnGender = new GenderEstimator();
-            cnnAge = new AgeEstimator();
+            cnnGender = new GenderEstimator(this);
+            cnnAge = new AgeEstimator(this);
         }
     }
 
