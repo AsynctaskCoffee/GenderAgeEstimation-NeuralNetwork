@@ -109,9 +109,10 @@ public class MainActivity extends AppCompatActivity {
         Mat mat = new OpenCVFrameConverter.ToMat().convert(frame);
         resize(mat, mat, new Size(227, 227));
         cvtColor(mat, mat, Imgproc.COLOR_RGBA2BGR);
-        sonuc_tv.setText("Cinsiyet: " + cnnGender.predictGender(mat, frame) +
+        sonuc_tv.setText("SEX : " + cnnGender.predictGender(mat, frame) +
                 "\n" +
-                "Yaş: " + cnnAge.predictAge(mat, frame));
+                "\n" +
+                "AGE : " + cnnAge.predictAge(mat, frame));
     }
 
 }
